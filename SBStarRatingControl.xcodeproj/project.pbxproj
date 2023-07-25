@@ -10,6 +10,7 @@
 		94659D602A6F49C2003B6574 /* SBStarRatingControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94659D572A6F49C2003B6574 /* SBStarRatingControl.framework */; };
 		94659D962A6F4A44003B6574 /* SBStarRatingControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94659D952A6F4A44003B6574 /* SBStarRatingControlTests.swift */; };
 		94C249022A6F5195002C77E7 /* SBStarRatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C249012A6F5195002C77E7 /* SBStarRatingControl.swift */; };
+		94C249072A6F99C1002C77E7 /* SBRatingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C249062A6F99C1002C77E7 /* SBRatingHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +28,7 @@
 		94659D5F2A6F49C2003B6574 /* SBStarRatingControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBStarRatingControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94659D952A6F4A44003B6574 /* SBStarRatingControlTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SBStarRatingControlTests.swift; path = Tests/SBStarRatingControlTests.swift; sourceTree = "<group>"; };
 		94C249012A6F5195002C77E7 /* SBStarRatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBStarRatingControl.swift; sourceTree = "<group>"; };
+		94C249062A6F99C1002C77E7 /* SBRatingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBRatingHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				94C249002A6F514B002C77E7 /* Core */,
+				94C249032A6F607E002C77E7 /* Utils */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -88,6 +91,14 @@
 				94C249012A6F5195002C77E7 /* SBStarRatingControl.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		94C249032A6F607E002C77E7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				94C249062A6F99C1002C77E7 /* SBRatingHandler.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94C249022A6F5195002C77E7 /* SBStarRatingControl.swift in Sources */,
+				94C249072A6F99C1002C77E7 /* SBRatingHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
