@@ -10,9 +10,19 @@
 import UIKit
 
 public class SBStarRatingControl: UIView {
-    public var rating: Float
+    public var rating: Float {
+        didSet {
+            if oldValue != self.rating {
+                self.updateView()
+            }
+        }
+    }
 
-    public var configuration: Configuration
+    public var configuration: Configuration {
+        didSet {
+            self.updateView()
+        }
+    }
 
     public convenience init(configuration: Configuration) {
         self.init(frame: .zero, configuration: configuration)
@@ -32,12 +42,17 @@ public class SBStarRatingControl: UIView {
         self.layer.shouldRasterize = true
         self.layer.rasterizationScale = UIScreen.main.scale
 
+        self.updateView()
     }
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    private func updateView() {}
+
+    private func updateLayout() {}
 }
 
 public extension SBStarRatingControl {
