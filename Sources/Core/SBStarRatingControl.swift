@@ -18,7 +18,11 @@ public class SBStarRatingControl: UIView {
 }
 
 public extension SBStarRatingControl {
-    struct Configuration {}
+    struct Configuration {
+        public static func `default`() -> Configuration {
+            return Configuration()
+        }
+    }
 }
 
 #endif
