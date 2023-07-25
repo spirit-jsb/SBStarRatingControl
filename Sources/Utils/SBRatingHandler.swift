@@ -10,7 +10,7 @@
 import Foundation
 
 struct SBRatingHandler {
-    static func calculateFillLevel(for rating: Float, with fillMode: SBStarRatingControl.Configuration.FillMode) -> Float {
+    static func fillLevel(forRating rating: Float, fillMode: SBStarRatingControl.Configuration.FillMode) -> Float {
         var result = rating
 
         if result > 1.0 {
