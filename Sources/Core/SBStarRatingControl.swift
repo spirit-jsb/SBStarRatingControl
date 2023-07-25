@@ -17,4 +17,8 @@ public class SBStarRatingControl: UIView {
     // }
 }
 
+public extension SBStarRatingControl {
+    struct Configuration {}
+}
+
 #endif
