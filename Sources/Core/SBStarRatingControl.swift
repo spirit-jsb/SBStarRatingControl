@@ -57,6 +57,44 @@ public class SBStarRatingControl: UIView {
 
 public extension SBStarRatingControl {
     struct Configuration {
+        public enum FillMode {
+            case full
+            case half
+            case precise
+        }
+
+        public var maxStarCount: Int = 5
+
+        public var fillMode: FillMode = .full
+
+        public var starSize: CGFloat = 20.0
+
+        public var starSpacing: CGFloat = 5.0
+
+        public var emptyBackgroundColor: UIColor? = UIColor.clear
+
+        public var filledBackgroundColor: UIColor? = UIColor(red: 0.0, green: CGFloat(122) / 255.0, blue: 1.0, alpha: 1.0)
+
+        public var emptyBorderColor: UIColor? = UIColor(red: 0.0, green: CGFloat(122) / 255.0, blue: 1.0, alpha: 1.0)
+        public var emptyBorderWidth: CGFloat = 1.0
+
+        public var filledBorderColor: UIColor? = UIColor(red: 0.0, green: CGFloat(122) / 255.0, blue: 1.0, alpha: 1.0)
+        public var filledBorderWidth: CGFloat = 1.0
+
+        public var emptyImage: UIImage?
+        public var emptyColor: UIColor?
+
+        public var filledImage: UIImage?
+        public var filledColor: UIColor?
+
+        public var blockingTouch: Bool = false
+
+        public var updateRatingUsingGesture: Bool = true
+
+        public var minRatingUsingGesture: Float = 1.0
+
+        public var isPanGestureEnabled: Bool = true
+
         public static func `default`() -> Configuration {
             return Configuration()
         }
