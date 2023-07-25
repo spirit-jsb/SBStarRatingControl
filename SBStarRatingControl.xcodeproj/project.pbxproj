@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		94659D602A6F49C2003B6574 /* SBStarRatingControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94659D572A6F49C2003B6574 /* SBStarRatingControl.framework */; };
 		94659D962A6F4A44003B6574 /* SBStarRatingControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94659D952A6F4A44003B6574 /* SBStarRatingControlTests.swift */; };
+		94C249022A6F5195002C77E7 /* SBStarRatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C249012A6F5195002C77E7 /* SBStarRatingControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +26,7 @@
 		94659D572A6F49C2003B6574 /* SBStarRatingControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SBStarRatingControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94659D5F2A6F49C2003B6574 /* SBStarRatingControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBStarRatingControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94659D952A6F4A44003B6574 /* SBStarRatingControlTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SBStarRatingControlTests.swift; path = Tests/SBStarRatingControlTests.swift; sourceTree = "<group>"; };
+		94C249012A6F5195002C77E7 /* SBStarRatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBStarRatingControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +77,17 @@
 		94659D912A6F4A34003B6574 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				94C249002A6F514B002C77E7 /* Core */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		94C249002A6F514B002C77E7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				94C249012A6F5195002C77E7 /* SBStarRatingControl.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +151,7 @@
 				TargetAttributes = {
 					94659D562A6F49C2003B6574 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 					94659D5E2A6F49C2003B6574 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -188,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94C249022A6F5195002C77E7 /* SBStarRatingControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +350,7 @@
 		94659D6A2A6F49C2003B6574 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -363,6 +377,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TVOS_DEPLOYMENT_TARGET = "";
@@ -373,6 +388,7 @@
 		94659D6B2A6F49C2003B6574 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -409,6 +425,7 @@
 		94659D6D2A6F49C2003B6574 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -426,6 +443,7 @@
 		94659D6E2A6F49C2003B6574 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
