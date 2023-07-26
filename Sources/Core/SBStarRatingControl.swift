@@ -80,7 +80,7 @@ public class SBStarRatingControl: UIView {
     private func updateView() {
         let starLayers = SBStarLayerFactory.createStarLayers(configuration: self.configuration, rating: self.rating, isRightToLeft: self.isRightToLeft)
 
-        let contentSize = SBStarLayerLayoutHandler.contentSize(starLayers: starLayers)
+        let contentSize = SBLayoutHandler.sizeToFitLayers(starLayers)
 
         self.layer.sublayers = starLayers
         self.frame.size = contentSize
