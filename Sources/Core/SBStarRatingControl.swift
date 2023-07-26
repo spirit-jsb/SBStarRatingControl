@@ -24,6 +24,8 @@ public class SBStarRatingControl: UIView {
         }
     }
 
+    private var contentSize: CGSize = .init()
+
     public convenience init(configuration: Configuration) {
         self.init(frame: .zero, configuration: configuration)
     }
@@ -50,9 +52,22 @@ public class SBStarRatingControl: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func updateView() {}
+    override public var intrinsicContentSize: CGSize {
+        return self.contentSize
+    }
 
-    private func updateLayout() {}
+    private func updateView() {
+        let starLayers = SBStarLayerFactory.createStarLayers(configuration: self.configuration, rating: self.rating, isRightToLeft: self.isRightToLeft)
+
+        let contentSize = SBStarLayerLayoutHandler.contentSize(starLayers: starLayers)
+
+        self.layer.sublayers = starLayers
+        self.frame.size = contentSize
+
+        self.contentSize = contentSize
+
+        self.invalidateIntrinsicContentSize()
+    }
 }
 
 public extension SBStarRatingControl {
