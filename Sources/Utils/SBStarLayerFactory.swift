@@ -11,16 +11,16 @@ import UIKit
 
 struct SBStarLayerFactory {
     static func createStarLayers(configuration: SBStarRatingControl.Configuration, rating: Float, isRightToLeft: Bool) -> [CALayer] {
-        var rating = max(min(rating, Float(configuration.totalStars)), 0.0)
+        var remainderOfRating = max(min(rating, Float(configuration.totalStars)), 0.0)
 
         var starLayers = [CALayer]()
         (0 ..< configuration.totalStars).forEach { _ in
-            let fillLevel = SBRatingHandler.starFillLevel(rating: rating, fillMode: configuration.fillMode)
+            let fillLevel = SBRatingHandler.starFillLevel(rating: remainderOfRating, fillMode: configuration.fillMode)
 
             let compositeStarLayer = self.createCompositeStarLayer(configuration: configuration, fillLevel: fillLevel, isRightToLeft: isRightToLeft)
             starLayers.append(compositeStarLayer)
 
-            rating -= 1.0
+            remainderOfRating -= 1.0
         }
 
         if isRightToLeft {

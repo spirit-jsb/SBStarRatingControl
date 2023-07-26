@@ -24,25 +24,25 @@ struct SBRatingHandler {
     }
 
     static func starFillLevel(rating: Float, fillMode: SBStarRatingControl.Configuration.FillMode) -> Float {
-        var result = rating
+        var starFillLevel = rating
 
-        if result > 1.0 {
-            result = 1.0
+        if starFillLevel > 1.0 {
+            starFillLevel = 1.0
         }
-        if result < 0.0 {
-            result = 0.0
+        if starFillLevel < 0.0 {
+            starFillLevel = 0.0
         }
 
         switch fillMode {
             case .full:
-                result = round(result)
+                starFillLevel = round(starFillLevel)
             case .half:
-                result = round(result * 2.0) / 2.0
+                starFillLevel = round(starFillLevel * 2.0) / 2.0
             case .precise:
                 break
         }
 
-        return result
+        return starFillLevel
     }
 }
 
