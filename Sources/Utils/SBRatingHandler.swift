@@ -10,6 +10,19 @@
 import Foundation
 
 struct SBRatingHandler {
+    static func displayedRatingFromPreciseRating(_ preciseRating: Float, totalStars: Int, fillMode: SBStarRatingControl.Configuration.FillMode) -> Float {
+        let integerPartOfRating = floor(preciseRating)
+        let remainderOfRating = preciseRating - integerPartOfRating
+
+        var displayedRating = integerPartOfRating + self.starFillLevel(rating: remainderOfRating, fillMode: fillMode)
+        // Can't go bigger than number of stars
+        displayedRating = min(displayedRating, Float(totalStars))
+        // Can't be less than zero
+        displayedRating = max(displayedRating, 0.0)
+
+        return displayedRating
+    }
+
     static func starFillLevel(rating: Float, fillMode: SBStarRatingControl.Configuration.FillMode) -> Float {
         var result = rating
 

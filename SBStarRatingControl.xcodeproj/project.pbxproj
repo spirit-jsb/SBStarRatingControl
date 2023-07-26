@@ -11,6 +11,7 @@
 		943F00512A70BE5900C89464 /* UIScreenExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F00502A70BE5900C89464 /* UIScreenExtensions.swift */; };
 		943F00532A70CA3800C89464 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F00522A70CA3800C89464 /* UIViewExtensions.swift */; };
 		943F00552A70D18C00C89464 /* SBStarLayerLayoutHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F00542A70D18C00C89464 /* SBStarLayerLayoutHandler.swift */; };
+		943F00572A7109EE00C89464 /* SBTouchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F00562A7109EE00C89464 /* SBTouchHandler.swift */; };
 		94659D602A6F49C2003B6574 /* SBStarRatingControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94659D572A6F49C2003B6574 /* SBStarRatingControl.framework */; };
 		94659D962A6F4A44003B6574 /* SBStarRatingControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94659D952A6F4A44003B6574 /* SBStarRatingControlTests.swift */; };
 		94C249022A6F5195002C77E7 /* SBStarRatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C249012A6F5195002C77E7 /* SBStarRatingControl.swift */; };
@@ -32,6 +33,7 @@
 		943F00502A70BE5900C89464 /* UIScreenExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtensions.swift; sourceTree = "<group>"; };
 		943F00522A70CA3800C89464 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		943F00542A70D18C00C89464 /* SBStarLayerLayoutHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBStarLayerLayoutHandler.swift; sourceTree = "<group>"; };
+		943F00562A7109EE00C89464 /* SBTouchHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBTouchHandler.swift; sourceTree = "<group>"; };
 		94659D572A6F49C2003B6574 /* SBStarRatingControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SBStarRatingControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94659D5F2A6F49C2003B6574 /* SBStarRatingControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBStarRatingControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94659D952A6F4A44003B6574 /* SBStarRatingControlTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SBStarRatingControlTests.swift; path = Tests/SBStarRatingControlTests.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				94C249062A6F99C1002C77E7 /* SBRatingHandler.swift */,
 				943F00492A70ABF900C89464 /* SBStarLayerFactory.swift */,
 				943F00542A70D18C00C89464 /* SBStarLayerLayoutHandler.swift */,
+				943F00562A7109EE00C89464 /* SBTouchHandler.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94C249022A6F5195002C77E7 /* SBStarRatingControl.swift in Sources */,
+				943F00572A7109EE00C89464 /* SBTouchHandler.swift in Sources */,
 				943F00552A70D18C00C89464 /* SBStarLayerLayoutHandler.swift in Sources */,
 				943F00532A70CA3800C89464 /* UIViewExtensions.swift in Sources */,
 				943F004A2A70ABF900C89464 /* SBStarLayerFactory.swift in Sources */,
