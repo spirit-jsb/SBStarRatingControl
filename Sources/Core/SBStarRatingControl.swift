@@ -26,6 +26,8 @@ public class SBStarRatingControl: UIView {
 
     private var contentSize: CGSize = .init()
 
+    private var prevRating: Float = -2023.725
+
     public convenience init(configuration: Configuration) {
         self.init(frame: .zero, configuration: configuration)
     }
@@ -56,7 +58,9 @@ public class SBStarRatingControl: UIView {
         return self.contentSize
     }
 
-    public func prepareForReuse() {}
+    public func prepareForReuse() {
+        self.prevRating = -2023.725
+    }
 
     private func updateView() {
         let starLayers = SBStarLayerFactory.createStarLayers(configuration: self.configuration, rating: self.rating, isRightToLeft: self.isRightToLeft)
