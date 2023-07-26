@@ -63,37 +63,65 @@ public extension SBStarRatingControl {
             case precise
         }
 
-        public var maxStarCount: Int = 5
+        public var totalStars: Int
 
-        public var fillMode: FillMode = .full
+        public var fillMode: FillMode
 
-        public var starSize: CGFloat = 20.0
+        public var starSize: CGFloat
 
-        public var starSpacing: CGFloat = 5.0
+        public var starSpacing: CGFloat
 
-        public var emptyBackgroundColor: UIColor? = UIColor.clear
+        public var emptyBackgroundColor: UIColor?
 
-        public var filledBackgroundColor: UIColor? = UIColor(red: 0.0, green: CGFloat(122) / 255.0, blue: 1.0, alpha: 1.0)
+        public var filledBackgroundColor: UIColor?
 
-        public var emptyBorderColor: UIColor? = UIColor(red: 0.0, green: CGFloat(122) / 255.0, blue: 1.0, alpha: 1.0)
-        public var emptyBorderWidth: CGFloat = 1.0
+        public var emptyBorderColor: UIColor?
+        public var emptyBorderWidth: CGFloat
 
-        public var filledBorderColor: UIColor? = UIColor(red: 0.0, green: CGFloat(122) / 255.0, blue: 1.0, alpha: 1.0)
-        public var filledBorderWidth: CGFloat = 1.0
+        public var filledBorderColor: UIColor?
+        public var filledBorderWidth: CGFloat
 
         public var emptyImage: UIImage?
-        public var emptyColor: UIColor?
+        public var emptyImageTintColor: UIColor?
 
         public var filledImage: UIImage?
-        public var filledColor: UIColor?
+        public var filledImageTintColor: UIColor?
 
-        public var blockingTouch: Bool = false
+        public var blockingTouch: Bool
 
-        public var updateRatingUsingGesture: Bool = true
+        public var updateRatingUsingGesture: Bool
 
-        public var minRatingUsingGesture: Float = 1.0
+        public var minRatingUsingGesture: Float
 
-        public var isPanGestureEnabled: Bool = true
+        public var isPanGestureEnabled: Bool
+
+        init() {
+            self.totalStars = 5
+
+            self.fillMode = .full
+
+            self.starSize = 20.0
+
+            self.starSpacing = 5.0
+
+            self.emptyBackgroundColor = UIColor.clear
+
+            self.filledBackgroundColor = UIColor(red: 0.0, green: CGFloat(122) / 255.0, blue: 1.0, alpha: 1.0)
+
+            self.emptyBorderColor = UIColor(red: 0.0, green: CGFloat(122) / 255.0, blue: 1.0, alpha: 1.0)
+            self.emptyBorderWidth = 1.0
+
+            self.filledBorderColor = UIColor(red: 0.0, green: CGFloat(122) / 255.0, blue: 1.0, alpha: 1.0)
+            self.filledBorderWidth = 1.0
+
+            self.blockingTouch = false
+
+            self.updateRatingUsingGesture = true
+
+            self.minRatingUsingGesture = 1.0
+
+            self.isPanGestureEnabled = true
+        }
 
         public static func `default`() -> Configuration {
             return Configuration()
