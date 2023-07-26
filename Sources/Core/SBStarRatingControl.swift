@@ -56,6 +56,8 @@ public class SBStarRatingControl: UIView {
         return self.contentSize
     }
 
+    public func prepareForReuse() {}
+
     private func updateView() {
         let starLayers = SBStarLayerFactory.createStarLayers(configuration: self.configuration, rating: self.rating, isRightToLeft: self.isRightToLeft)
 
