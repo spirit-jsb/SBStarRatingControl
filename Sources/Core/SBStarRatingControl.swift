@@ -58,6 +58,10 @@ public class SBStarRatingControl: UIView {
         return self.contentSize
     }
 
+    override public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return self.configuration.isPanGestureEnabled ? true : !(gestureRecognizer is UIPanGestureRecognizer)
+    }
+
     public func prepareForReuse() {
         self.prevRating = -2023.725
     }
