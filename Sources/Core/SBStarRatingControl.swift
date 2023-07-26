@@ -62,6 +62,17 @@ public class SBStarRatingControl: UIView {
         return self.configuration.isPanGestureEnabled ? true : !(gestureRecognizer is UIPanGestureRecognizer)
     }
 
+
+    override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if #available(iOS 13.0, *) {
+            if self.traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+                self.updateView()
+            }
+        }
+    }
+
     public func prepareForReuse() {
         self.previousRating = -2023.725
     }
