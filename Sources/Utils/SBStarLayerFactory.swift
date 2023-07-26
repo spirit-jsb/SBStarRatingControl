@@ -10,6 +10,28 @@
 import UIKit
 
 struct SBStarLayerFactory {
+    static func createStarLayers(configuration: SBStarRatingControl.Configuration, rating: Float, isRightToLeft: Bool) -> [CALayer] {
+        var rating = max(min(rating, Float(configuration.totalStars)), 0.0)
+
+        var starLayers = [CALayer]()
+        (0 ..< configuration.totalStars).forEach { _ in
+            let fillLevel = SBRatingHandler.fillLevel(rating: rating, fillMode: configuration.fillMode)
+
+            let compositeStarLayer = self.createCompositeStarLayer(configuration: configuration, fillLevel: fillLevel, isRightToLeft: isRightToLeft)
+            starLayers.append(compositeStarLayer)
+
+            rating -= 1.0
+        }
+
+        if isRightToLeft {
+            starLayers.reverse()
+        }
+
+        self.positionStarLayers(starLayers, starSpacing: configuration.starSpacing)
+
+        return starLayers
+    }
+
     static func createStarLayer(size: CGFloat, fillColor: UIColor?, strokeColor: UIColor?, lineWidth: CGFloat) -> CALayer {
         let starContainerLayer = self.starContainerLayer(size: size)
 
@@ -41,6 +63,62 @@ struct SBStarLayerFactory {
         starContainerLayer.addSublayer(starImageContainerLayer)
 
         return starContainerLayer
+    }
+
+    private static func createCompositeStarLayer(configuration: SBStarRatingControl.Configuration, fillLevel: Float, isRightToLeft: Bool) -> CALayer {
+        if fillLevel >= 1.0 {
+            return self.starLayer(configuration: configuration, isFilled: true)
+        }
+
+        if fillLevel == 0.0 {
+            return self.starLayer(configuration: configuration, isFilled: false)
+        }
+
+        return self.preciseStarLayer(configuration: configuration, fillLevel: fillLevel, isRightToLeft: isRightToLeft)
+    }
+
+    private static func positionStarLayers(_ starLayers: [CALayer], starSpacing: CGFloat) {
+        var positionX: CGFloat = 0.0
+
+        for layer in starLayers {
+            layer.position.x = positionX
+            positionX += layer.bounds.width + starSpacing
+        }
+    }
+
+    private static func starLayer(configuration: SBStarRatingControl.Configuration, isFilled: Bool) -> CALayer {
+        let starSize = configuration.starSize
+
+        let backgroundColor = isFilled ? configuration.filledBackgroundColor : configuration.emptyBackgroundColor
+
+        let borderColor = isFilled ? configuration.filledBorderColor : configuration.emptyBorderColor
+        let borderWidth = isFilled ? configuration.filledBorderWidth : configuration.emptyBorderWidth
+
+        let image = isFilled ? configuration.filledImage : configuration.emptyImage
+        let imageTintColor = isFilled ? configuration.filledImageTintColor : configuration.emptyImageTintColor
+
+        return image != nil ? self.createStarLayer(image: image, size: starSize, tintColor: imageTintColor) : self.createStarLayer(size: starSize, fillColor: backgroundColor, strokeColor: borderColor, lineWidth: borderWidth)
+    }
+
+    private static func preciseStarLayer(configuration: SBStarRatingControl.Configuration, fillLevel: Float, isRightToLeft: Bool) -> CALayer {
+        let emptyStarLayer = self.starLayer(configuration: configuration, isFilled: false)
+        let filledStarLayer = self.starLayer(configuration: configuration, isFilled: true)
+
+        let preciseStarLayer = CALayer()
+        preciseStarLayer.bounds = CGRect(x: 0.0, y: 0.0, width: filledStarLayer.bounds.width, height: filledStarLayer.bounds.height)
+        preciseStarLayer.anchorPoint = CGPoint()
+        preciseStarLayer.contentsScale = UIScreen.current.scale
+
+        preciseStarLayer.addSublayer(emptyStarLayer)
+        preciseStarLayer.addSublayer(filledStarLayer)
+
+        if isRightToLeft {
+            filledStarLayer.transform = CATransform3DTranslate(CATransform3DMakeRotation(.pi, 0.0, 1.0, 0.0), -filledStarLayer.bounds.width, 0.0, 0.0)
+        }
+
+        filledStarLayer.bounds.size.width *= CGFloat(fillLevel)
+
+        return preciseStarLayer
     }
 
     private static func starContainerLayer(size: CGFloat) -> CALayer {
@@ -143,3 +221,46 @@ struct SBStarLayerFactory {
 }
 
 #endif
+
+// private func _createStarLayer(with starConfiguration: VMStarConfiguration, isFilled: Bool) -> CALayer {
+//  let starSize = starConfiguration.starSize
+//
+//  let backgroundColor = isFilled ? starConfiguration.filledBackgroundColor : starConfiguration.emptyBackgroundColor
+//  let borderColor = isFilled ? starConfiguration.filledBorderColor : starConfiguration.emptyBorderColor
+//  let borderWidth = isFilled ? starConfiguration.actualFilledBorderWidth : starConfiguration.actualEmptyBorderWidth
+//
+//  let starImage = isFilled ? starConfiguration.filledStarImage : starConfiguration.emptyStarImage
+//  let starImageTintColor = isFilled ? starConfiguration.filledStarImageTintColor : starConfiguration.emptyStarImageTintColor
+//
+//  let starLayer: CALayer
+//
+//  if starImage != nil {
+//    starLayer = self._createStarLayer(starImage!, size: starSize, tintColor: starImageTintColor)
+//  }
+//  else {
+//    starLayer = self._createStarLayer(starSize, fillColor: backgroundColor, strokeColor: borderColor, lineWidth: borderWidth)
+//  }
+//
+//  return starLayer
+// }
+
+// private func _createPreciseStarLayer(with starConfiguration: VMStarConfiguration, starFillLevel: Float, isRightToLeft: Bool) -> CALayer {
+//  let emptyStarLayer = self._createStarLayer(with: starConfiguration, isFilled: false)
+//  let filledStarLayer = self._createStarLayer(with: starConfiguration, isFilled: true)
+//
+//  let preciseStarLayer = CALayer()
+//  preciseStarLayer.bounds = CGRect(origin: CGPoint(), size: filledStarLayer.bounds.size)
+//  preciseStarLayer.anchorPoint = CGPoint()
+//  preciseStarLayer.contentsScale = UIScreen.main.scale
+//
+//  preciseStarLayer.addSublayer(emptyStarLayer)
+//  preciseStarLayer.addSublayer(filledStarLayer)
+//
+//  if isRightToLeft {
+//    filledStarLayer.transform = CATransform3DTranslate(CATransform3DMakeRotation(.pi, 0.0, 1.0, 0.0), -filledStarLayer.bounds.width, 0.0, 0.0)
+//  }
+//
+//  filledStarLayer.bounds.size.width *= CGFloat(starFillLevel)
+//
+//  return preciseStarLayer
+// }
