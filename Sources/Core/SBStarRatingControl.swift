@@ -61,6 +61,12 @@ public class SBStarRatingControl: UIView {
         return self.contentSize
     }
 
+    override public func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        let optimizedBounds = SBTouchHandler.optimizeHitBounds(self.bounds)
+
+        return optimizedBounds.contains(point)
+    }
+
     override public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return self.configuration.isPanGestureEnabled ? true : !(gestureRecognizer is UIPanGestureRecognizer)
     }
