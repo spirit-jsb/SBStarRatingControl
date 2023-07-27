@@ -15,23 +15,14 @@ struct SBRatingHandler {
         let remainderOfRating = preciseRating - integerPartOfRating
 
         var displayedRating = integerPartOfRating + self.starFillLevel(rating: remainderOfRating, fillMode: fillMode)
-        // Can't go bigger than number of stars
-        displayedRating = min(displayedRating, Float(totalStars))
-        // Can't be less than zero
-        displayedRating = max(displayedRating, 0.0)
+        // Can't go bigger than number of stars & Can't be less than zero
+        displayedRating = max(min(displayedRating, Float(totalStars)), 0.0)
 
         return displayedRating
     }
 
     static func starFillLevel(rating: Float, fillMode: SBStarRatingControl.Configuration.FillMode) -> Float {
-        var starFillLevel = rating
-
-        if starFillLevel > 1.0 {
-            starFillLevel = 1.0
-        }
-        if starFillLevel < 0.0 {
-            starFillLevel = 0.0
-        }
+        var starFillLevel = rating < 0.0 ? 0.0 : rating > 1.0 ? 1.0 : rating
 
         switch fillMode {
             case .full:

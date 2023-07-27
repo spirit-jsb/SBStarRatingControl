@@ -62,7 +62,6 @@ public class SBStarRatingControl: UIView {
         return self.configuration.isPanGestureEnabled ? true : !(gestureRecognizer is UIPanGestureRecognizer)
     }
 
-
     override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
