@@ -10,6 +10,9 @@
 import UIKit
 
 public class SBStarRatingControl: UIView {
+    public var didTouchStarRating: ((Float) -> Void)?
+    public var didFinishTouchingStarRating: ((Float) -> Void)?
+
     public var rating: Float {
         didSet {
             if oldValue != self.rating {
@@ -62,6 +65,46 @@ public class SBStarRatingControl: UIView {
         return self.configuration.isPanGestureEnabled ? true : !(gestureRecognizer is UIPanGestureRecognizer)
     }
 
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if !self.configuration.blockingTouch {
+            super.touchesBegan(touches, with: event)
+        }
+
+        guard let location = self.touchLocationFromBeginningOfRating(touches) else {
+            return
+        }
+
+        self.onDidTouch(location)
+    }
+
+    override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if !self.configuration.blockingTouch {
+            super.touchesMoved(touches, with: event)
+        }
+
+        guard let location = self.touchLocationFromBeginningOfRating(touches) else {
+            return
+        }
+
+        self.onDidTouch(location)
+    }
+
+    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if !self.configuration.blockingTouch {
+            super.touchesEnded(touches, with: event)
+        }
+
+        self.didFinishTouchingStarRating?(self.rating)
+    }
+
+    override public func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if !self.configuration.blockingTouch {
+            super.touchesCancelled(touches, with: event)
+        }
+
+        self.didFinishTouchingStarRating?(self.rating)
+    }
+
     override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
@@ -87,6 +130,36 @@ public class SBStarRatingControl: UIView {
         self.contentSize = contentSize
 
         self.invalidateIntrinsicContentSize()
+    }
+
+    private func touchLocationFromBeginningOfRating(_ touches: Set<UITouch>) -> CGFloat? {
+        guard let touch = touches.first else {
+            return nil
+        }
+
+        var location = touch.location(in: self).x
+
+        if self.isRightToLeft {
+            location = self.bounds.width - location
+        }
+
+        return location
+    }
+
+    private func onDidTouch(_ position: CGFloat) {
+        let touchRating = SBTouchHandler.touchRating(position: position, configuration: self.configuration)
+
+        if self.configuration.updateRatingUsingGesture {
+            self.rating = touchRating
+        }
+
+        guard touchRating != self.previousRating else {
+            return
+        }
+
+        self.didTouchStarRating?(touchRating)
+
+        self.previousRating = touchRating
     }
 }
 
