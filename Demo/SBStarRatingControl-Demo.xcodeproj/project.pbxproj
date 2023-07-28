@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		943F005A2A73A20900C89464 /* SBStarRatingControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943F00592A73A20900C89464 /* SBStarRatingControl.framework */; };
 		94659DB32A6F4AF1003B6574 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94659DAA2A6F4AF1003B6574 /* ViewController.swift */; };
 		94659DB42A6F4AF1003B6574 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94659DAB2A6F4AF1003B6574 /* Assets.xcassets */; };
 		94659DB52A6F4AF1003B6574 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94659DAC2A6F4AF1003B6574 /* LaunchScreen.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		943F00592A73A20900C89464 /* SBStarRatingControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SBStarRatingControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94659D782A6F49CF003B6574 /* SBStarRatingControl-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SBStarRatingControl-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94659DAA2A6F4AF1003B6574 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		94659DAB2A6F4AF1003B6574 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -31,17 +33,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				943F005A2A73A20900C89464 /* SBStarRatingControl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		943F00582A73A20900C89464 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				943F00592A73A20900C89464 /* SBStarRatingControl.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		94659D6F2A6F49CF003B6574 = {
 			isa = PBXGroup;
 			children = (
 				94659D972A6F4AD6003B6574 /* Demo */,
 				94659D792A6F49CF003B6574 /* Products */,
+				943F00582A73A20900C89464 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
