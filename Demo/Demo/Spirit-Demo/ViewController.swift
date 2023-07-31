@@ -117,6 +117,12 @@ class ViewController: UIViewController {
         self.preciseStarRatingControl.didFinishTouchingStarRating = self.didFinishTouchingStarRating
 
         self.ratingSlider.value = self.defaultRating
+
+        self.fullStarRatingControl.rating = self.ratingSlider.value
+        self.halfStarRatingControl.rating = self.ratingSlider.value
+        self.preciseStarRatingControl.rating = self.ratingSlider.value
+
+        self.ratingLabel.text = String(format: "%.2f", self.ratingSlider.value)
     }
 
     private func constructViewHierarchy() {
@@ -131,10 +137,22 @@ class ViewController: UIViewController {
     }
 
     @objc
-    func ratingChanged(_ sender: UISlider) {}
+    func ratingChanged(_ sender: UISlider) {
+        self.fullStarRatingControl.rating = self.ratingSlider.value
+        self.halfStarRatingControl.rating = self.ratingSlider.value
+        self.preciseStarRatingControl.rating = self.ratingSlider.value
+
+        self.ratingLabel.text = String(format: "%.2f", self.ratingSlider.value)
+    }
 
     func didTouchStarRating(_ rating: Float) {
         self.ratingSlider.value = rating
+
+        self.fullStarRatingControl.rating = rating
+        self.halfStarRatingControl.rating = rating
+        self.preciseStarRatingControl.rating = rating
+
+        self.ratingLabel.text = String(format: "%.2f", rating)
     }
 
     func didFinishTouchingStarRating(_ rating: Float) {
