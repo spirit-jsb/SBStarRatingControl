@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		943F005A2A73A20900C89464 /* SBStarRatingControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943F00592A73A20900C89464 /* SBStarRatingControl.framework */; };
+		9446CB692A78FC10007BA9BA /* ImageStarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446CB682A78FC10007BA9BA /* ImageStarViewController.swift */; };
+		9446CB6B2A78FEA1007BA9BA /* ListRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446CB6A2A78FEA1007BA9BA /* ListRatingViewController.swift */; };
+		9446CB6D2A78FED2007BA9BA /* ListRatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446CB6C2A78FED2007BA9BA /* ListRatingTableViewCell.swift */; };
 		94659DB32A6F4AF1003B6574 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94659DAA2A6F4AF1003B6574 /* ViewController.swift */; };
 		94659DB42A6F4AF1003B6574 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94659DAB2A6F4AF1003B6574 /* Assets.xcassets */; };
 		94659DB52A6F4AF1003B6574 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94659DAC2A6F4AF1003B6574 /* LaunchScreen.storyboard */; };
@@ -18,6 +21,9 @@
 
 /* Begin PBXFileReference section */
 		943F00592A73A20900C89464 /* SBStarRatingControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SBStarRatingControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9446CB682A78FC10007BA9BA /* ImageStarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStarViewController.swift; sourceTree = "<group>"; };
+		9446CB6A2A78FEA1007BA9BA /* ListRatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRatingViewController.swift; sourceTree = "<group>"; };
+		9446CB6C2A78FED2007BA9BA /* ListRatingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRatingTableViewCell.swift; sourceTree = "<group>"; };
 		94659D782A6F49CF003B6574 /* SBStarRatingControl-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SBStarRatingControl-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94659DAA2A6F4AF1003B6574 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		94659DAB2A6F4AF1003B6574 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,6 +87,9 @@
 				94659DAC2A6F4AF1003B6574 /* LaunchScreen.storyboard */,
 				94659DAE2A6F4AF1003B6574 /* Main.storyboard */,
 				94659DAA2A6F4AF1003B6574 /* ViewController.swift */,
+				9446CB682A78FC10007BA9BA /* ImageStarViewController.swift */,
+				9446CB6C2A78FED2007BA9BA /* ListRatingTableViewCell.swift */,
+				9446CB6A2A78FEA1007BA9BA /* ListRatingViewController.swift */,
 				94659DAB2A6F4AF1003B6574 /* Assets.xcassets */,
 				94659DB12A6F4AF1003B6574 /* Info.plist */,
 			);
@@ -159,9 +168,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9446CB6D2A78FED2007BA9BA /* ListRatingTableViewCell.swift in Sources */,
 				94659DB72A6F4AF1003B6574 /* AppDelegate.swift in Sources */,
 				94659DB32A6F4AF1003B6574 /* ViewController.swift in Sources */,
 				94659DB92A6F4AF1003B6574 /* SceneDelegate.swift in Sources */,
+				9446CB6B2A78FEA1007BA9BA /* ListRatingViewController.swift in Sources */,
+				9446CB692A78FC10007BA9BA /* ImageStarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
