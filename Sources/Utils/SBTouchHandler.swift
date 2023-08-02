@@ -10,20 +10,6 @@
 import UIKit
 
 struct SBTouchHandler {
-    static func optimizeHitBounds(_ bounds: CGRect) -> CGRect {
-        let recommendedHitSize: CGFloat = 44.0
-
-        var expandHitWidth: CGFloat = recommendedHitSize - bounds.width
-        var expandHitHeight: CGFloat = recommendedHitSize - bounds.height
-
-        expandHitWidth = max(expandHitWidth, 0.0)
-        expandHitHeight = max(expandHitHeight, 0.0)
-
-        let expandHitBounds: CGRect = bounds.insetBy(dx: -expandHitWidth / 2.0, dy: -expandHitHeight / 2.0)
-
-        return expandHitBounds
-    }
-
     static func touchRating(position: CGFloat, configuration: SBStarRatingControl.Configuration) -> Float {
         func preciseTouchRating(position: CGFloat, totalStars: Int, starSize: CGFloat, starSpacing: CGFloat) -> Float {
             guard position >= 0.0 else {

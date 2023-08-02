@@ -31,6 +31,20 @@ public class SBStarRatingControl: UIView {
 
     private var previousRating: Float = -2023.725
 
+    private var optimizeHitBounds: CGRect {
+        let recommendedHitSize: CGFloat = 44.0
+
+        var expandHitWidth: CGFloat = recommendedHitSize - self.bounds.width
+        var expandHitHeight: CGFloat = recommendedHitSize - self.bounds.height
+
+        expandHitWidth = max(expandHitWidth, 0.0)
+        expandHitHeight = max(expandHitHeight, 0.0)
+
+        let expandHitBounds: CGRect = self.bounds.insetBy(dx: -expandHitWidth / 2.0, dy: -expandHitHeight / 2.0)
+
+        return expandHitBounds
+    }
+
     public convenience init(configuration: Configuration) {
         self.init(frame: .zero, configuration: configuration)
     }
@@ -62,9 +76,7 @@ public class SBStarRatingControl: UIView {
     }
 
     override public func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        let optimizedBounds = SBTouchHandler.optimizeHitBounds(self.bounds)
-
-        return optimizedBounds.contains(point)
+        return self.optimizeHitBounds.contains(point)
     }
 
     override public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -167,7 +179,7 @@ public class SBStarRatingControl: UIView {
 
         self.previousRating = touchRating
     }
-    
+
     private func sizeToFitLayers(_ layers: [CALayer]) -> CGSize {
         var size = CGSize()
 
