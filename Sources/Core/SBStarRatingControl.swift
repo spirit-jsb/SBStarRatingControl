@@ -165,7 +165,7 @@ public class SBStarRatingControl: UIView {
     }
 
     private func onDidTouch(_ position: CGFloat) {
-        let touchRating = SBTouchHandler.touchRating(position: position, configuration: self.configuration)
+        let touchRating = self.touchRating(position: position)
 
         if self.configuration.updateRatingUsingGesture {
             self.rating = touchRating
@@ -193,6 +193,60 @@ public class SBStarRatingControl: UIView {
         }
 
         return size
+    }
+
+    private func touchRating(position: CGFloat) -> Float {
+        func preciseTouchRating(position: CGFloat, totalStars: Int, starSize: CGFloat, starSpacing: CGFloat) -> Float {
+            guard position >= 0.0 else {
+                return 0.0
+            }
+
+            var remainderOfPosition = position
+
+            var rating = Float(Int(position / (starSize + starSpacing)))
+
+            guard Int(rating) <= totalStars else {
+                return Float(totalStars)
+            }
+
+            remainderOfPosition -= CGFloat(rating) * (starSize + starSpacing)
+
+            if remainderOfPosition > starSize {
+                rating += Float(1.0)
+            } else {
+                rating += Float(remainderOfPosition / starSize)
+            }
+
+            return rating
+        }
+
+        func displayedRatingFromPreciseRating(_ preciseRating: Float, totalStars: Int, fillMode: SBStarRatingControl.Configuration.FillMode) -> Float {
+            let integerPartOfRating = floor(preciseRating)
+            let remainderOfRating = preciseRating - integerPartOfRating
+
+            var displayedRating = integerPartOfRating + fillMode.starFillLevel(rating: remainderOfRating)
+            // Can't go bigger than number of stars & Can't be less than zero
+            displayedRating = max(min(displayedRating, Float(totalStars)), 0.0)
+
+            return displayedRating
+        }
+
+        var preciseRating = preciseTouchRating(position: position, totalStars: self.configuration.totalStars, starSize: self.configuration.starSize, starSpacing: self.configuration.starSpacing)
+
+        // sensitivity threshold value = 0.05
+        if self.configuration.fillMode == .half {
+            preciseRating += 0.20
+        }
+        if self.configuration.fillMode == .full {
+            preciseRating += 0.45
+        }
+
+        var displayedRating = displayedRatingFromPreciseRating(preciseRating, totalStars: self.configuration.totalStars, fillMode: self.configuration.fillMode)
+
+        // Can't be less than min rating
+        displayedRating = max(displayedRating, self.configuration.minRatingUsingGesture)
+
+        return displayedRating
     }
 }
 
