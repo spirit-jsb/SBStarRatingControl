@@ -15,7 +15,7 @@ struct SBStarLayerFactory {
 
         var starLayers = [CALayer]()
         (0 ..< configuration.totalStars).forEach { _ in
-            let fillLevel = SBRatingHandler.starFillLevel(rating: remainderOfRating, fillMode: configuration.fillMode)
+            let fillLevel = configuration.fillMode.starFillLevel(rating: remainderOfRating)
 
             let compositeStarLayer = self.createCompositeStarLayer(configuration: configuration, fillLevel: fillLevel, isRightToLeft: isRightToLeft)
             starLayers.append(compositeStarLayer)
