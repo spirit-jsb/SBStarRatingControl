@@ -5,9 +5,9 @@
 //  Created by JONO-Jsb on 2023/8/2.
 //
 
-#if canImport(Foundation)
+#if canImport(UIKit)
 
-import Foundation
+import UIKit
 
 extension SBStarRatingControl.Configuration.FillMode {
     func starFillLevel(rating: Float) -> Float {
