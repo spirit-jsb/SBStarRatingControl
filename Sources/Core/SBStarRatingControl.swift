@@ -10,8 +10,8 @@
 import UIKit
 
 public class SBStarRatingControl: UIView {
-    public var didTouchStarRating: ((Float) -> Void)?
-    public var didFinishTouchingStarRating: ((Float) -> Void)?
+    public var touchRatingChanged: ((Float) -> Void)?
+    public var touchRatingEnded: ((Float) -> Void)?
 
     public var rating: Float {
         didSet {
@@ -100,7 +100,7 @@ public class SBStarRatingControl: UIView {
             super.touchesEnded(touches, with: event)
         }
 
-        self.didFinishTouchingStarRating?(self.rating)
+        self.touchRatingEnded?(self.rating)
     }
 
     override public func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -108,7 +108,7 @@ public class SBStarRatingControl: UIView {
             super.touchesCancelled(touches, with: event)
         }
 
-        self.didFinishTouchingStarRating?(self.rating)
+        self.touchRatingEnded?(self.rating)
     }
 
     override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -163,7 +163,7 @@ public class SBStarRatingControl: UIView {
             return
         }
 
-        self.didTouchStarRating?(touchRating)
+        self.touchRatingChanged?(touchRating)
 
         self.previousRating = touchRating
     }

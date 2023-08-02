@@ -45,7 +45,7 @@ extension ListRatingViewController: UITableViewDataSource {
             let rating = self.ratings[indexPath.row]
             cell.updateRating(rating)
 
-            cell.preciseStarRatingControl.didFinishTouchingStarRating = { [weak self] rating in
+            cell.preciseStarRatingControl.touchRatingEnded = { [weak self] rating in
                 self?.ratings[indexPath.row] = rating
             }
 

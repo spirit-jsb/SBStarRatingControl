@@ -108,13 +108,13 @@ class ViewController: UIViewController {
         self.constructViewHierarchy()
         self.activateConstraints()
 
-        self.fullStarRatingControl.didTouchStarRating = self.didTouchStarRating
-        self.halfStarRatingControl.didTouchStarRating = self.didTouchStarRating
-        self.preciseStarRatingControl.didTouchStarRating = self.didTouchStarRating
+        self.fullStarRatingControl.touchRatingChanged = self.touchRatingChanged
+        self.halfStarRatingControl.touchRatingChanged = self.touchRatingChanged
+        self.preciseStarRatingControl.touchRatingChanged = self.touchRatingChanged
 
-        self.fullStarRatingControl.didFinishTouchingStarRating = self.didFinishTouchingStarRating
-        self.halfStarRatingControl.didFinishTouchingStarRating = self.didFinishTouchingStarRating
-        self.preciseStarRatingControl.didFinishTouchingStarRating = self.didFinishTouchingStarRating
+        self.fullStarRatingControl.touchRatingEnded = self.touchRatingEnded
+        self.halfStarRatingControl.touchRatingEnded = self.touchRatingEnded
+        self.preciseStarRatingControl.touchRatingEnded = self.touchRatingEnded
 
         self.ratingSlider.value = self.defaultRating
 
@@ -145,7 +145,7 @@ class ViewController: UIViewController {
         self.ratingLabel.text = String(format: "%.2f", self.ratingSlider.value)
     }
 
-    func didTouchStarRating(_ rating: Float) {
+    func touchRatingChanged(_ rating: Float) {
         self.ratingSlider.value = rating
 
         self.fullStarRatingControl.rating = rating
@@ -155,7 +155,7 @@ class ViewController: UIViewController {
         self.ratingLabel.text = String(format: "%.2f", rating)
     }
 
-    func didFinishTouchingStarRating(_ rating: Float) {
+    func touchRatingEnded(_ rating: Float) {
         self.ratingSlider.value = rating
     }
 }
