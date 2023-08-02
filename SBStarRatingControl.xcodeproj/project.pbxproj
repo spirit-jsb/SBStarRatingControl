@@ -13,6 +13,7 @@
 		943F00572A7109EE00C89464 /* SBTouchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F00562A7109EE00C89464 /* SBTouchHandler.swift */; };
 		94659D602A6F49C2003B6574 /* SBStarRatingControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94659D572A6F49C2003B6574 /* SBStarRatingControl.framework */; };
 		94659D962A6F4A44003B6574 /* SBStarRatingControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94659D952A6F4A44003B6574 /* SBStarRatingControlTests.swift */; };
+		94724DF62A79FC3100F8B86D /* FillModeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94724DF52A79FC3100F8B86D /* FillModeExtensions.swift */; };
 		94C249022A6F5195002C77E7 /* SBStarRatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C249012A6F5195002C77E7 /* SBStarRatingControl.swift */; };
 		94C249072A6F99C1002C77E7 /* SBRatingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C249062A6F99C1002C77E7 /* SBRatingHandler.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +36,7 @@
 		94659D572A6F49C2003B6574 /* SBStarRatingControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SBStarRatingControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94659D5F2A6F49C2003B6574 /* SBStarRatingControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBStarRatingControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94659D952A6F4A44003B6574 /* SBStarRatingControlTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SBStarRatingControlTests.swift; path = Tests/SBStarRatingControlTests.swift; sourceTree = "<group>"; };
+		94724DF52A79FC3100F8B86D /* FillModeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillModeExtensions.swift; sourceTree = "<group>"; };
 		94C249012A6F5195002C77E7 /* SBStarRatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBStarRatingControl.swift; sourceTree = "<group>"; };
 		94C249062A6F99C1002C77E7 /* SBRatingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBRatingHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +63,7 @@
 		943F004D2A70B18500C89464 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				94724DF52A79FC3100F8B86D /* FillModeExtensions.swift */,
 				943F00502A70BE5900C89464 /* UIScreenExtensions.swift */,
 				943F00522A70CA3800C89464 /* UIViewExtensions.swift */,
 			);
@@ -233,6 +236,7 @@
 			files = (
 				94C249022A6F5195002C77E7 /* SBStarRatingControl.swift in Sources */,
 				943F00572A7109EE00C89464 /* SBTouchHandler.swift in Sources */,
+				94724DF62A79FC3100F8B86D /* FillModeExtensions.swift in Sources */,
 				943F00532A70CA3800C89464 /* UIViewExtensions.swift in Sources */,
 				943F004A2A70ABF900C89464 /* SBStarLayerFactory.swift in Sources */,
 				94C249072A6F99C1002C77E7 /* SBRatingHandler.swift in Sources */,
