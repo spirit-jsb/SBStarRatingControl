@@ -47,7 +47,7 @@ public class SBStarRatingControl: UIView {
 
         // https://developer.apple.com/documentation/quartzcore/calayer/1410905-shouldrasterize
         self.layer.shouldRasterize = true
-        self.layer.rasterizationScale = UIScreen.main.scale
+        self.layer.rasterizationScale = UIScreen.current.scale
 
         self.updateView()
     }
