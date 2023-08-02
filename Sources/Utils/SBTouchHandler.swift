@@ -35,6 +35,17 @@ struct SBTouchHandler {
             return rating
         }
 
+        func displayedRatingFromPreciseRating(_ preciseRating: Float, totalStars: Int, fillMode: SBStarRatingControl.Configuration.FillMode) -> Float {
+            let integerPartOfRating = floor(preciseRating)
+            let remainderOfRating = preciseRating - integerPartOfRating
+
+            var displayedRating = integerPartOfRating + fillMode.starFillLevel(rating: remainderOfRating)
+            // Can't go bigger than number of stars & Can't be less than zero
+            displayedRating = max(min(displayedRating, Float(totalStars)), 0.0)
+
+            return displayedRating
+        }
+
         var preciseRating = preciseTouchRating(position: position, totalStars: configuration.totalStars, starSize: configuration.starSize, starSpacing: configuration.starSpacing)
 
         // sensitivity threshold value = 0.05
@@ -45,7 +56,7 @@ struct SBTouchHandler {
             preciseRating += 0.45
         }
 
-        var displayedRating = SBRatingHandler.displayedRatingFromPreciseRating(preciseRating, totalStars: configuration.totalStars, fillMode: configuration.fillMode)
+        var displayedRating = displayedRatingFromPreciseRating(preciseRating, totalStars: configuration.totalStars, fillMode: configuration.fillMode)
 
         // Can't be less than min rating
         displayedRating = max(displayedRating, configuration.minRatingUsingGesture)

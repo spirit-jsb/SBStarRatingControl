@@ -15,7 +15,6 @@
 		94659D962A6F4A44003B6574 /* SBStarRatingControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94659D952A6F4A44003B6574 /* SBStarRatingControlTests.swift */; };
 		94724DF62A79FC3100F8B86D /* FillModeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94724DF52A79FC3100F8B86D /* FillModeExtensions.swift */; };
 		94C249022A6F5195002C77E7 /* SBStarRatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C249012A6F5195002C77E7 /* SBStarRatingControl.swift */; };
-		94C249072A6F99C1002C77E7 /* SBRatingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C249062A6F99C1002C77E7 /* SBRatingHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +37,6 @@
 		94659D952A6F4A44003B6574 /* SBStarRatingControlTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SBStarRatingControlTests.swift; path = Tests/SBStarRatingControlTests.swift; sourceTree = "<group>"; };
 		94724DF52A79FC3100F8B86D /* FillModeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillModeExtensions.swift; sourceTree = "<group>"; };
 		94C249012A6F5195002C77E7 /* SBStarRatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBStarRatingControl.swift; sourceTree = "<group>"; };
-		94C249062A6F99C1002C77E7 /* SBRatingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBRatingHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +115,6 @@
 		94C249032A6F607E002C77E7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				94C249062A6F99C1002C77E7 /* SBRatingHandler.swift */,
 				943F00492A70ABF900C89464 /* SBStarLayerFactory.swift */,
 				943F00562A7109EE00C89464 /* SBTouchHandler.swift */,
 			);
@@ -239,7 +236,6 @@
 				94724DF62A79FC3100F8B86D /* FillModeExtensions.swift in Sources */,
 				943F00532A70CA3800C89464 /* UIViewExtensions.swift in Sources */,
 				943F004A2A70ABF900C89464 /* SBStarLayerFactory.swift in Sources */,
-				94C249072A6F99C1002C77E7 /* SBRatingHandler.swift in Sources */,
 				943F00512A70BE5900C89464 /* UIScreenExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
