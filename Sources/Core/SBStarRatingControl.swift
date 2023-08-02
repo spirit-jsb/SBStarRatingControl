@@ -128,7 +128,7 @@ public class SBStarRatingControl: UIView {
     private func updateView() {
         let starLayers = SBStarLayerFactory.createStarLayers(configuration: self.configuration, rating: self.rating, isRightToLeft: self.isRightToLeft)
 
-        let contentSize = SBLayoutHandler.sizeToFitLayers(starLayers)
+        let contentSize = self.sizeToFitLayers(starLayers)
 
         self.layer.sublayers = starLayers
         self.frame.size = contentSize
@@ -166,6 +166,21 @@ public class SBStarRatingControl: UIView {
         self.touchRatingChanged?(touchRating)
 
         self.previousRating = touchRating
+    }
+    
+    private func sizeToFitLayers(_ layers: [CALayer]) -> CGSize {
+        var size = CGSize()
+
+        for layer in layers {
+            if layer.frame.maxX > size.width {
+                size.width = layer.frame.maxX
+            }
+            if layer.frame.maxY > size.height {
+                size.height = layer.frame.maxY
+            }
+        }
+
+        return size
     }
 }
 
