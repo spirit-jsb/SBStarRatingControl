@@ -1,8 +1,9 @@
 //
 //  SBStarLayerFactory.swift
-//  SBStarRatingControl
 //
-//  Created by JONO-Jsb on 2023/7/26.
+//  Created by Max on 2023/10/2
+//
+//  Copyright © 2023 Max. All rights reserved.
 //
 
 #if canImport(UIKit)
