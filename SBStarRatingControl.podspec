@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
     s.name        = 'SBStarRatingControl'
-    s.version     = '1.0.3'
+    s.version     = '1.0.4'
     s.summary     = 'A lightweight and pure Swift implemented library for customizable star rating control.'
   
     s.description = <<-DESC
